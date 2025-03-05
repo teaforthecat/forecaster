@@ -56,13 +56,24 @@ spec/services/weather_api_service_spec.rb
 app/models/time_step.rb
 ```
 
-Some notes on the above: The TimeStep class is a data model and serializer using
+Some notes on the above: The TomorrowDailyTimeStep class is a data model and serializer using
 ActiveModel. It is meant to wrap the incoming data. If this class is serialized
 in a cache it would hold all the data, even though we are using only a few
 fields. I'm going to punt on removing the unused fields for now. I think this is
 a good example of class design and encapsulation. The WeatherApiService is
 another example of this. It has an exposed interface that could, in theory,
 facilitate a different weather api in the future.
+
+Next, I'll add the caching layer. The cache will expire based on time, which is
+both part of the requirements and reasonable for the time-based domain of the
+weather. Memcached is a good choice for this because of it's fifo time-based
+expiration. Rails cache store supports Memcached, but it is't required locally,
+just for production. I'll change the `config/environments/production.rb` file to
+have `:mem_cache_store` and development and test to have `:memory_cache_store.
+If this gets deployed, I'll add memcached host configuration at that time.
+   
+
+
 
 
 

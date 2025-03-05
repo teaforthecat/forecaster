@@ -2,7 +2,10 @@
 # see Docs: https://docs.tomorrow.io/reference/weather-forecast
 class TomorrowDailyTimeStep
   include ActiveModel::API
-  attr_accessor :time, :values
+  include ActiveModel::Attributes
+
+  attribute :time, :date
+  attribute :values
 
 
   def temperature

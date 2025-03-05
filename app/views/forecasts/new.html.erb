@@ -1,5 +1,6 @@
 <p>Enter the address</p>
 <%= form_for @address, url: forecasts_path do |f| %>
+  <%= f.label :zipcode %>
   <%= f.text_field :zipcode %>
   <%= f.submit "Submit" %>
 <%- end %>

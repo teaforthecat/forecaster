@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe WeatherApiService do
   around(:each) do |ex|
-    VCR.insert_cassette(:tomorrow, record: :new_episodes)
+    VCR.insert_cassette(:tomorrow)
     ex.run
     VCR.eject_cassette(:tomorrow)
   end

@@ -1,0 +1,14 @@
+<p>
+  <%= link_to "Search again", new_forecast_path %>
+</p>
+<p>
+  Requested at:
+  <%= @forecast.cached_at.strftime('%l:%M') %>
+  <%= "(cached)" if @cache_hit %>
+</p>
+<dl>
+  <%- @forecast.time_steps.each do |time_step| %>
+    <dt><%= time_step.time.strftime('%a %d') %></dt>
+    <dd>Temp: <%= time_step.temperature %></dd>
+  <%- end %>
+</dl>
