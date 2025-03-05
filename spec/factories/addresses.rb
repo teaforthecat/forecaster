@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :address do
-    zipcode { "MyString" }
+    sequence(:zipcode) { |n| "1080#{n}"  }
   end
 end

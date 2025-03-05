@@ -48,6 +48,23 @@ Record(ADR) for this decision, but this is good enough for now.
 
 Next I will create a TomorrowAPI client with a unit test and a stored recording using VCR.
 
+New files added:
+
+``` shell
+app/services/weather_api_service.rb
+spec/services/weather_api_service_spec.rb
+app/models/time_step.rb
+```
+
+Some notes on the above: The TimeStep class is a data model and serializer using
+ActiveModel. It is meant to wrap the incoming data. If this class is serialized
+in a cache it would hold all the data, even though we are using only a few
+fields. I'm going to punt on removing the unused fields for now. I think this is
+a good example of class design and encapsulation. The WeatherApiService is
+another example of this. It has an exposed interface that could, in theory,
+facilitate a different weather api in the future.
+
+
 
 
 
