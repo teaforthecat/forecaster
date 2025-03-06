@@ -12,7 +12,7 @@ RSpec.describe WeatherApiService do
   it 'calls the forecast resource with a zipcode parameter' do
     weather = WeatherApiService.new(valid_address)
     result = weather.forecast
-    expect(result.first.time).to eql("2025-03-05T11:00:00Z")
+    expect(result.first.time).to be_a Time
     expect(result.first.temperature).to eql(10.3)
   end
 

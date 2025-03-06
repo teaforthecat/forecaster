@@ -9,6 +9,6 @@
 <dl>
   <%- @forecast.time_steps.each do |time_step| %>
     <dt><%= time_step.time.strftime('%a %d') %></dt>
-    <dd>Temp: <%= time_step.temperature %></dd>
+    <dd>Temp: <%= time_step.temperature_max %> / <%= time_step.temperature_min %></dd>
   <%- end %>
 </dl>

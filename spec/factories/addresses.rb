@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :address do
-    sequence(:zipcode) { |n| "1080#{n}"  }
+    # note: this value is recorded in vcr_cassettes/tomorrow.yml
+    zipcode { "10801"  }
   end
 end

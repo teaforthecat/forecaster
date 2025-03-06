@@ -38,5 +38,7 @@ module Forecaster
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.forecast_cache_minutes = ENV.fetch("FORECAST_CACHE_MINUTES", 30).to_i
   end
 end

@@ -63,3 +63,5 @@ gem "factory_bot_rails", "~> 6.4"
 gem "httparty", "~> 0.22.0"
 gem "vcr", "~> 6.3"
 gem "webmock", "~> 3.25"
+
+gem "dalli", "~> 3.2"

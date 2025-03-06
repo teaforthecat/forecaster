@@ -8,7 +8,7 @@ class ForecastsController < ApplicationController
     if @address.valid?
       @cache_hit = true
       # 30 minute cache is a requirement, we rely on memcache to manage this
-      @forecast = Rails.cache.fetch(@address.zipcode, expire_in: 30.minutes) do |_|
+      @forecast = Rails.cache.fetch(@address.zipcode, expires_in: expires_in) do |_|
         @cache_hit = false # it is required to indicate cache hit or not
         request_forecast(@address)
       end
@@ -38,5 +38,11 @@ class ForecastsController < ApplicationController
 
   def address_params
     params.expect(address: [ :zipcode ])
+  end
+
+  def expires_in
+    Rails.application
+      .config.forecast_cache_minutes
+      .minutes
   end
 end
