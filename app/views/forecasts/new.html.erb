@@ -1,3 +1,7 @@
+<% flash.each do |type,msg| %>
+  <p class="flash <%= type %>"><%= msg %></p>
+<% end %>
+
 <p>Enter the address</p>
 <%= form_for @address, url: forecasts_path do |f| %>
   <%= f.label :zipcode %>

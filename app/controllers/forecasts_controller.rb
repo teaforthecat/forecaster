@@ -7,6 +7,7 @@ class ForecastsController < ApplicationController
     @address = Address.new(zipcode: params[:zipcode])
     if @address.valid?
       @cache_hit = true
+
       # 30 minute cache is a requirement, we rely on memcache to manage this
       @forecast = Rails.cache.fetch(@address.zipcode, expires_in: expires_in) do |_|
         @cache_hit = false # it is required to indicate cache hit or not
@@ -15,6 +16,9 @@ class ForecastsController < ApplicationController
     else
       redirect_to new_forecast_url
     end
+  rescue StandardError => e
+    Rails.logger.error "#{e.class} #{e.message}"
+    redirect_to new_forecast_url, notice: "Please search again"
   end
 
   def create

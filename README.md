@@ -103,7 +103,7 @@ New files added:
 ``` shell
 app/services/weather_api_service.rb
 spec/services/weather_api_service_spec.rb
-app/models/time_step.rb
+app/models/tomorrow_daily_time_step.rb
 ```
 
 Some notes on the above: The TomorrowDailyTimeStep class is a data model and serializer using
