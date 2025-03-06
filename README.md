@@ -5,6 +5,9 @@
 1. ensure ruby 3.2.2 is insalled
 1. ensure bundler gem is installed
 1. run `bundle` to install dependencies 
+1. run `echo 'e25f0417fe1e7d33eaf8c98d6c4f96ba' > config/master.key` (we'll pretend this is coming from a secure system like a password manager)
+
+That `master.key` will allow use of the encrypted credentials that contain the api key for Tomorrow.io
 
 To run the service:
 ``` shell
