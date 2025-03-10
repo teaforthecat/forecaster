@@ -1,4 +1,7 @@
-# README
+# Weather Forecaster
+
+See the next five days of forecasted temperature highs and lows based on a zipcode (US only). 
+Deployed here: [https://forecaster.teaforthe.cat](https://forecaster.teaforthe.cat)
 
 ## Setup to run locally
 
