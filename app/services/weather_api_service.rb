@@ -13,6 +13,7 @@ class WeatherApiService
   end
 
   def forecast
+    Rails.logger.info "WeatherAPIService requesting forecast"
     response = self.class.get("/forecast",
                    query: { location: location,
                             timesteps: timesteps,
@@ -26,7 +27,7 @@ class WeatherApiService
     # Tommorow's api is flexible and will return strange things like bustops if
     # the zipcode is not a real, existing zipcode
     if body.dig("location", "type") != "postcode"
-      raise InvalidRequest.new('zipcode not found: #{zipcode}')
+      raise InvalidRequest.new("zipcode not found: #{zipcode}")
     end
     body.dig("timelines", "daily").map { |step| TomorrowDailyTimeStep.new(step) }
   end
