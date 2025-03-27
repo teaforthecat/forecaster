@@ -60,7 +60,7 @@ end
 gem "rspec-rails", "~> 7.1"
 gem "factory_bot_rails", "~> 6.4"
 
-gem "httparty", "~> 0.22.0"
+gem "httparty", "~> 0.23.0"
 gem "vcr", "~> 6.3"
 gem "webmock", "~> 3.25"
 
